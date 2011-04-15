@@ -6,7 +6,7 @@
 double exponential(double r);
 
 double g_avg_arrv_intv = 5;
-double g_avg_serv_time = 50;
+double g_avg_serv_time = 500;
 
 int g_online_user_cnt = 0;
 
@@ -24,7 +24,7 @@ int main(int argc, const char *argv[])
 		return 1;
 	}
 
-	double end_time = 10000;
+	double end_time = 100000;
 	Event first_arrv(0.0, &userArrival);
 	enqueue(first_arrv);
 
