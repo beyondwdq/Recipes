@@ -20,5 +20,6 @@ struct Event{
 };
 
 void enqueue(const Event& event);
+void run_sim(double end_time);
 
 #endif
