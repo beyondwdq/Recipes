@@ -15,6 +15,11 @@ void enqueue(const Event& event)
     g_event_queue.insert(itr, event);
 }
 
+double now(void)
+{
+	return g_current_time;
+}
+
 void run_sim(double end_time)
 {
 	while(!g_event_queue.empty() && g_current_time<end_time){
