@@ -1,26 +1,10 @@
 #include <list>
 #include <algorithm>
 
-//Implementation of Event
-typedef void (*TEventHandler) (void);
-struct Event{
-    Event(double occur_time, TEventHandler handler)
-    : m_occur_time(occur_time)
-    , m_handler(handler)
-    {}
-
-    bool operator < (const Event& rhs) const{
-        return m_occur_time < rhs.m_occur_time;
-    }
-
-    double m_occur_time;
-    TEventHandler m_handler;
-};
+#include "edsim_naive.h"
 
 typedef std::list<Event> TEventList;
-//End of implementation of Event
 
-//global variables for simulation
 TEventList g_event_list;
 double g_current_time;
 
@@ -30,7 +14,12 @@ void enqueue(const Event& event)
     g_event_list.insert(itr, event);
 }
 
-int main(int argc, const char *argv[])
+void run_sim(double end_time)
 {
-    return 0;
+	while(!g_event_list.empty() && g_current_time<end_time){
+		Event event = g_event_list.front();
+		g_event_list.pop_front();
+		g_current_time = event.m_occur_time;
+		(*event.m_handler)();
+	}
 }
