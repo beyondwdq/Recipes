@@ -3,18 +3,23 @@
 #include <stdio.h>
 #include "edsim_naive.h"
 
+//return exponentially distributed random numbers
 double exponential(double r);
 
+//settings: 
+//average inter-arrival time
 double g_avg_arrv_intv = 5;
+//average serve time
 double g_avg_serv_time = 500;
 
+//statistics
 int g_online_user_cnt = 0;
 
 FILE *g_log_file = NULL;
 
-void logOnlineUserCount(void);
-void userDeparture(void);
 void userArrival(void);
+void userDeparture(void);
+void logOnlineUserCount(void);
 
 int main(int argc, const char *argv[])
 {
@@ -25,6 +30,8 @@ int main(int argc, const char *argv[])
 	}
 
 	double end_time = 100000;
+
+	//first arrival event
 	Event first_arrv(0.0, &userArrival);
 	enqueue(first_arrv);
 
