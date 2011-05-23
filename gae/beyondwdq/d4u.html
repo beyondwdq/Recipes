@@ -1,0 +1,23 @@
+<html>
+  <body>
+      <p>"Download for you"(d4u) downloads the file from the url specified in the following text field and zip it. You can then download the zip file. This is useful when some file types (typically .torrent file) are block by your network administrator.</p>
+      <p>Limitations:
+      <li>Only HTTP and HTTPS are supported.
+      <li>The zip file size should be less than 1M bytes.
+      <li>Only ASCII characters are allowed in the file name. Otherwise you will have to specify the file name in the "Save as" text field and only file names of ascii code are allowed. This constraint is caused by a bug in the zipfile module with Python 2.5, which is the Python version supported by GAE. The problem is solved in Python 2.6.5.
+      </p>
+
+      <p>Direct download</p>
+      <form action="/d4u" method="post">
+          <input type="radio" name="download_method" value="direct" /> Direct download<br />
+          <input type="radio" name="download_method" value="post" checked /> Download by submitting a form <br />
+          URL: <input type="text" size="200" name="url" />
+          Save as (ASCII only) <br><input type="text" size="20" name="saveas" />
+          <br>
+          <input type="submit" value="Submit" />
+      </form>
+
+      <!--<a href="{{ url }}">{{ url_linktext }}</a>-->
+
+  </body>
+</html>
