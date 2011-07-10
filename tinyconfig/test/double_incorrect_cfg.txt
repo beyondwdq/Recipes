@@ -1,0 +1,4 @@
+#this is a comment line
+indicator = 100
+count = 200
+ratio = 100.1.2
