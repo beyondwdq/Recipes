@@ -1,0 +1,12 @@
+This directory contains some code showing the basic usage of google leveldb.
+The functions of the files are listed as follows:
+
+createdb.cc: how to create a databse file with leveldb.
+write_read.cc: how to write and read (key, value) pair to/from leveldb.
+comparator.cc: how to use customized comparator.
+batch_write.cc: how to use batched write operations.
+
+Besides, a file keygen.cc is provided to generate sequential keys for testing.
+
+To compile the source files, the leveldb include files and libleveldb.a should 
+be copied to the current directory. Please use Makefile to compile them.
