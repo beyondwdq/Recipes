@@ -21,13 +21,13 @@ bool Config::Item::set(const std::string& value)
 			bret = false;
 
 	} else if (p_int_!=NULL){
-		if (value.find_first_not_of("0123456789")!=string::npos)
+		if (value.find_first_not_of("-0123456789")!=string::npos)
 			bret = false;
 		else{
 			*p_int_ = atoi(value.c_str());
 		}
 	} else if (p_double_!=NULL){
-		if (value.find_first_not_of(".0123456789")!=string::npos)
+		if (value.find_first_not_of("-.0123456789")!=string::npos)
 			bret = false;
 		else{
 			string::size_type idot = value.find('.');
