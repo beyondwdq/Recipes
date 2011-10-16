@@ -62,7 +62,7 @@ struct AdderWithExtractor : public std::unary_function<T,void>{
  * overflow. */
 template <typename Tsum, typename Textract, typename InputIterator>
 Tsum sum(InputIterator first, InputIterator last){
-	typedef typename InputIterator::value_type Tvalue;
+	typedef typename std::iterator_traits<InputIterator>::value_type Tvalue;
 	return std::for_each(first, last, 
 			AdderWithExtractor<Tvalue, Tsum, Textract>()
 			).sum_;
