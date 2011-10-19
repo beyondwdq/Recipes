@@ -1,3 +1,6 @@
+#ifndef FIXEDSIZEORDEREDLIST_H
+#define FIXEDSIZEORDEREDLIST_H
+
 #include <set>
 
 template < class Key, class Compare = std::less<Key>,
@@ -48,3 +51,5 @@ class FixedSizeOrderedList : public std::multiset<Key, Compare, Allocator>
 	private:
 	size_t max_size_;
 };
+
+#endif //FIXEDSIZEORDEREDLIST_H

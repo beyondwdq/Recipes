@@ -1,3 +1,6 @@
+#ifndef HELPER_H
+#define HELPER_H
+
 #include <algorithm>
 #include <iterator>
 #include <cassert>
@@ -154,3 +157,4 @@ typename MapType::iterator efficientAddOrUpdate(MapType& m,
 
 }
 
+#endif //HELPER_H
