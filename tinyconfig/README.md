@@ -7,11 +7,14 @@ my development of a simulator, I wanted a simply and easy-to-use configuration
 parser without dependencies on non-standard C++ libraries. Hence I began to work 
 on it and finally I got TinyConfig. 
 
-Previously I was considering separating the Reader (which reads and parses file)
-from the Parameters (which defines the parameters). With this separation, it is 
-possible to support more format in the future by deriving new Readers. However, 
-I decided to keep it simple, so all codes are packed into one class "Config". 
-And this is it. It is simple. It is clear. And It works.
+The first version is written without separating the ConfigReader (which reads 
+and parses file) from the Config (which defines the parameters). It is super 
+simple, clean, and it just works. This version is tagged as `v0.1`.
+
+Later on I wanted to try different config file format, espacially using a lua as 
+the file parser. Hence the ConfigReader is separated from Config. With this 
+separation, it is possible to support more format in the future by deriving new 
+ConfigReaders. 
 
 TinyConfig has the following functions:
 
