@@ -5,8 +5,8 @@ INCDIR := ../
 CPPFLAGS += $(addprefix -I, $(INCDIR) ${GTEST_DIR}/include)
 
 
-config : config_test.o libgtest.a
-	g++ $(CXXFLAGS) -o config_test config_test.o ../config.o libgtest.a
+config : config_test.o ../libconfig.a libgtest.a
+	g++ $(CXXFLAGS) -o config_test config_test.o ../libconfig.a libgtest.a
 
 config_test.o : config_test.cc
 

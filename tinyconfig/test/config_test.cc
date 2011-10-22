@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 
 #include "config.h"
+#include "plainconfigreader.h"
 
 namespace{
 	class DummyConfig : public Config{
@@ -9,8 +10,8 @@ namespace{
 			int count_;
 			double ratio_;
 
-			DummyConfig()
-				: Config()
+			DummyConfig(ConfigReader *reader)
+				: Config(reader)
 			{
 				add("indicator", &indicator_, true);
 				add("count", &count_, 100);
@@ -35,7 +36,8 @@ namespace{
 	};
 
 	 TEST_F(ConfigTest, LoadConfigTest){
-		 DummyConfig config;
+		 PlainConfigReader *reader = new PlainConfigReader();
+		 DummyConfig config(reader);
 		 ASSERT_EQ( config.indicator_, true );
 		 ASSERT_EQ( config.count_, 100 );
 		 ASSERT_EQ( config.ratio_, 0.1 );
