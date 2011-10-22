@@ -18,9 +18,10 @@ ConfigReaders.
 
 TinyConfig has the following functions:
 
-1. It reads parameters from a simple file format. Each line defines a parameter 
-with the format of "key = value", where "key" is the name of the parameter 
-and "value" specifies the assigned value. No hierarchy is supported.
+1. It can read parameters from either a lua script (LuaConfigReader) or a plain 
+file format (PlainConfigReader). In the plain file format, each line defines a 
+parameter with the format of "key = value", where "key" is the name of the 
+parameter and "value" specifies the assigned value. No hierarchy is supported.
 
 2. With every defined parameter, invoke Config::add() to register it to the 
 parser. Then the Config will automatically set the value if it is specified in 
