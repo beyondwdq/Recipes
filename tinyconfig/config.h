@@ -5,8 +5,6 @@
 #include <string>
 #include <cassert>
 
-class ConfigReader;
-
 class Config{
 	public:
 		struct Item{
@@ -44,7 +42,7 @@ class Config{
 		typedef std::map<std::string, Item> TItemMap;
 
 		//constructor
-		Config(ConfigReader *reader);
+		Config();
 		virtual ~Config();
 
 		bool load(const char *filename);
@@ -75,7 +73,6 @@ class Config{
 
 	private:
 		TItemMap item_map_;
-		ConfigReader *reader_;
 
 
 };

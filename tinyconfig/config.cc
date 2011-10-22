@@ -1,7 +1,6 @@
 #include <iostream>
 #include <algorithm> //use transform
 
-#include "configreader.h"
 #include "config.h"
 
 using namespace std;
@@ -43,19 +42,13 @@ bool Config::Item::set(const std::string& value)
 	return bret;
 }
 
-Config::Config(ConfigReader *reader)
-	: reader_(reader)
+Config::Config()
 {
 }
 
 Config::~Config()
 {
 	
-}
-
-bool Config::load(const char *filename)
-{
-	return reader_->load(filename, this);
 }
 
 bool Config::set(const string& name, const string& value)

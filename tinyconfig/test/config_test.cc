@@ -10,8 +10,8 @@ namespace{
 			int count_;
 			double ratio_;
 
-			DummyConfig(ConfigReader *reader)
-				: Config(reader)
+			DummyConfig()
+				: Config()
 			{
 				add("indicator", &indicator_, true);
 				add("count", &count_, 100);
@@ -37,24 +37,24 @@ namespace{
 
 	 TEST_F(ConfigTest, LoadConfigTest){
 		 PlainConfigReader *reader = new PlainConfigReader();
-		 DummyConfig config(reader);
+		 DummyConfig config;
 		 ASSERT_EQ( config.indicator_, true );
 		 ASSERT_EQ( config.count_, 100 );
 		 ASSERT_EQ( config.ratio_, 0.1 );
 
-		 bool suc = config.load("file_not_existed.txt");
+		 bool suc = reader->load("file_not_existed.txt", &config);
 		 ASSERT_FALSE(suc);
 
-		 suc = config.load("bool_incorrect_cfg.txt");
+		 suc = reader->load("bool_incorrect_cfg.txt", &config);
 		 ASSERT_FALSE(suc);
 
-		 suc = config.load("int_incorrect_cfg.txt");
+		 suc = reader->load("int_incorrect_cfg.txt", &config);
 		 ASSERT_FALSE(suc);
 
-		 suc = config.load("double_incorrect_cfg.txt");
+		 suc = reader->load("double_incorrect_cfg.txt", &config);
 		 ASSERT_FALSE(suc);
 
-		 suc = config.load("cfg.txt");
+		 suc = reader->load("cfg.txt", &config);
 		 ASSERT_TRUE(suc);
 		 ASSERT_EQ( config.indicator_, false );
 		 ASSERT_EQ( config.count_, 200 );
