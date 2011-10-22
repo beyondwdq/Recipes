@@ -2,6 +2,7 @@
 
 #include "config.h"
 #include "plainconfigreader.h"
+#include "luaconfigreader.h"
 
 namespace{
 	class DummyConfig : public Config{
@@ -35,8 +36,34 @@ namespace{
 
 	};
 
-	 TEST_F(ConfigTest, LoadConfigTest){
+	 TEST_F(ConfigTest, PlainConfigTest){
 		 PlainConfigReader *reader = new PlainConfigReader();
+		 DummyConfig config;
+		 ASSERT_EQ( config.indicator_, true );
+		 ASSERT_EQ( config.count_, 100 );
+		 ASSERT_EQ( config.ratio_, 0.1 );
+
+		 bool suc = reader->load("file_not_existed.txt", &config);
+		 ASSERT_FALSE(suc);
+
+		 suc = reader->load("bool_incorrect_cfg.txt", &config);
+		 ASSERT_FALSE(suc);
+
+		 suc = reader->load("int_incorrect_cfg.txt", &config);
+		 ASSERT_FALSE(suc);
+
+		 suc = reader->load("double_incorrect_cfg.txt", &config);
+		 ASSERT_FALSE(suc);
+
+		 suc = reader->load("cfg.txt", &config);
+		 ASSERT_TRUE(suc);
+		 ASSERT_EQ( config.indicator_, false );
+		 ASSERT_EQ( config.count_, 200 );
+		 ASSERT_EQ( config.ratio_, 100.1 );
+	 }
+
+	 TEST_F(ConfigTest, LuaConfigTest){
+		 LuaConfigReader *reader = new LuaConfigReader();
 		 DummyConfig config;
 		 ASSERT_EQ( config.indicator_, true );
 		 ASSERT_EQ( config.count_, 100 );
