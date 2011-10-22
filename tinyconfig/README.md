@@ -18,19 +18,19 @@ ConfigReaders.
 
 TinyConfig has the following functions:
 
-1. It can read parameters from either a lua script (LuaConfigReader) or a plain 
-file format (PlainConfigReader). In the plain file format, each line defines a 
-parameter with the format of "key = value", where "key" is the name of the 
-parameter and "value" specifies the assigned value. No hierarchy is supported.
+1. It can read parameters from either a lua script (`LuaConfigReader`) or a plain 
+file format (`PlainConfigReader`). In the plain file format, each line defines a 
+parameter with the format of `key = value`, where "`key`" is the name of the 
+parameter and `value` specifies the assigned value. No hierarchy is supported.
 
-2. With every defined parameter, invoke Config::add() to register it to the 
+2. With every defined parameter, invoke `Config::add()` to register it to the 
 parser. Then the Config will automatically set the value if it is specified in 
 the configuration file.
 
-3. Three types of parameters are supported: bool, int and double.
+3. Three types of parameters are supported: `bool`, `int` and `double`.
 
-In the current test defined in test/config_test.cc, a sub-class is derived from
-class Config to define parameters. However, I really prefer to just copy the 
-Config class, add parameters to it and invoke Config::add() in its constructor.
+In the current test defined in `test/config_test.cc`., a sub-class is derived from
+class `Config` to define parameters. However, I really prefer to just copy the 
+`Config` class, add parameters to it and invoke `Config::add()` in its constructor.
 
 
