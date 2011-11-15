@@ -138,7 +138,7 @@ void shrinkToSize(Container& c, size_t s){
 
 /* Update an elemennt in std::map, or add it if not exists.
  * copied from <<Effective STL>> */
-template<typename MapType, typename KeyArgType, typename ValueArgtype>
+template <typename MapType, typename KeyArgType, typename ValueArgtype>
 typename MapType::iterator efficientAddOrUpdate(MapType& m,
 		const KeyArgType& k,
 		const ValueArgtype& v)
@@ -155,6 +155,26 @@ typename MapType::iterator efficientAddOrUpdate(MapType& m,
 	}
 }
 
-}
+#include <sstream>
+
+template <typename InputIterator>
+std::string toString(
+		InputIterator first, 
+		InputIterator last, 
+		const char* delim)
+{
+	typedef typename std::iterator_traits<InputIterator>::value_type value_type; 
+
+	if (first==last) return "";
+	std::ostringstream oss;
+	--last;
+	if (first!=last){
+		std::copy(first, last, std::ostream_iterator<value_type>(oss, delim));
+	}
+	oss<<*(last);
+	return oss.str();
+} 
+
+} //namespace mtl
 
 #endif //HELPER_H

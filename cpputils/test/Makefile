@@ -1,4 +1,4 @@
-all_tests = helper_test
+all_tests = helper_test fixedsizeorderedlist_test
 
 CXXFLAGS :=  -g -Wall -O0 
 INCDIR := ../
