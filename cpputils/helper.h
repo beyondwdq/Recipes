@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <iterator>
 #include <cassert>
+#include <sstream>
 
 /* My template library ^-^ */
 namespace mtl{
@@ -154,8 +155,6 @@ typename MapType::iterator efficientAddOrUpdate(MapType& m,
 		return m.insert(Ib, MVT(k, v)); 
 	}
 }
-
-#include <sstream>
 
 template <typename InputIterator>
 std::string toString(
