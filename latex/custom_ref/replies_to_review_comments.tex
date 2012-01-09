@@ -2,16 +2,15 @@
 
 \newcounter{reviewerno}
 \setcounter{reviewerno}{0}
-\newcounter{commentno}
+\newcounter{commentno}[reviewerno]
 \setcounter{commentno}{0}
 
 \newcommand{\reviewer}{%
-\addtocounter{reviewerno}{1}%
-\setcounter{commentno}{0}%
+\stepcounter{reviewerno}%
 \section*{Reviewer \#\arabic{reviewerno}}}
 
 \newcommand{\comment}{%
-\addtocounter{commentno}{1}%
+\stepcounter{commentno}%
 \subsection*{Comment \#\arabic{reviewerno}-\arabic{commentno}}}
 
 \newcommand{\reply}{%
