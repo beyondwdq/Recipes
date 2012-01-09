@@ -5,13 +5,17 @@
 \newcounter{commentno}[reviewerno]
 \setcounter{commentno}{0}
 
+\renewcommand{\thereviewerno}{\#\arabic{reviewerno}}
+\renewcommand{\thecommentno}{\#\arabic{reviewerno}-\arabic{commentno}}
+
+
 \newcommand{\reviewer}{%
-\stepcounter{reviewerno}%
-\section*{Reviewer \#\arabic{reviewerno}}}
+\refstepcounter{reviewerno}%
+\section*{Reviewer \thereviewerno}}
 
 \newcommand{\comment}{%
-\stepcounter{commentno}%
-\subsection*{Comment \#\arabic{reviewerno}-\arabic{commentno}}}
+\refstepcounter{commentno}%
+\subsection*{Comment \thecommentno}}
 
 \newcommand{\reply}{%
 \vspace{5 mm}%
@@ -29,6 +33,8 @@
 
 \comment
 
+\label{com:novelty}
+
 The paper lacks novelty.
 
 \reply 
@@ -42,11 +48,15 @@ The novelty of the paper is summarized as follows:
 
 \comment 
 
-More simulations are need to fully evaluate the proposed method.
+More simulations are need to fully evaluate the proposed method. The
+contributions of the paper is not clear.
+
 
 \reply 
 
 We have carried out extensive simulations based on the reviewer's suggestion.
+
+Please refer to Comment \ref{com:novelty} for the details of our contributions.
 
 \reviewer
 
