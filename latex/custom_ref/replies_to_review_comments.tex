@@ -1,0 +1,59 @@
+\documentclass[a4paper]{article}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{appendix}
+\usepackage{graphicx}
+
+\newcounter{reviewerno}
+\setcounter{reviewerno}{0}
+\newcounter{commentno}
+\setcounter{commentno}{0}
+
+\newcommand{\reviewer}{%
+\addtocounter{reviewerno}{1}%
+\setcounter{commentno}{0}%
+\section*{Reviewer \#\arabic{reviewerno}}}
+
+\newcommand{\comment}{%
+\addtocounter{commentno}{1}%
+\subsection*{Comment \#\arabic{reviewerno}-\arabic{commentno}}}
+
+\newcommand{\reply}{%
+\vspace{5 mm}%
+{\bfseries Reply: }} 
+
+\begin{document}
+\title{Replies to Review-Comments}
+
+\begin{center}
+{\bfseries Summary of Changes}
+\end{center}
+
+
+\reviewer
+
+\comment
+
+The paper lacks novelty.
+
+\reply 
+
+The novelty of the paper is summarized as follows:
+
+\begin{itemize}
+	\item Novelty A
+	\item Novelty B
+\end{itemize}
+
+\comment 
+
+More simulations are need to fully evaluate the proposed method.
+
+\reply 
+
+We have carried out extensive simulations based on the reviewer's suggestion.
+
+
+\end{document}
+
+
