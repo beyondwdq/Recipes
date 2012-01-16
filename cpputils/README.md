@@ -6,8 +6,9 @@ This directory containes some utilities I have written during my developement.
 * fixedsizeorderedlist.h implements an ordered list with fixed size. 
 The class `FixedSizeOrderedList` is derived from `std::set`. It works, 
 but it is risky to derive a class from `std::set` since it does have a virtual
-destructor (Effective C++ 3rd edition, item 7). It would be better to use
-aggregation instead of inheritence.
+destructor (Effective C++ 3rd edition, item 7). Currently private inheritance is
+used to solve this problem. It would be better to use aggregation instead of
+inheritance.
 
 * helper.h includes a set of utility functions for various purposes. All functions 
 are in the namespace `mtl`.

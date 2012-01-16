@@ -4,13 +4,14 @@
 #include <set>
 
 /* NOTE: It is risky to derive a class from `std::set` since it does have a virtual
- * destructor (Effective C++ 3rd edition, item 7). It would be better to use
+ * destructor (Effective C++ 3rd edition, item 7). Currently private inheritance
+ * is used to solve this problem.It would be better to use
  * aggregation instead of inheritence. This is a part of the future work.
  * */
 
 template < class Key, class Compare = std::less<Key>,
 		 class Allocator = std::allocator<Key> >
-class FixedSizeOrderedList : public std::multiset<Key, Compare, Allocator>
+class FixedSizeOrderedList : private std::multiset<Key, Compare, Allocator>
 {
 	public:
 
