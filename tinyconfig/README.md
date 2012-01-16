@@ -9,11 +9,11 @@ on it and finally I got TinyConfig.
 
 The first version is written without separating the `ConfigReader` (which reads 
 and parses file) from the `Config` (which defines the parameters). It is super 
-simple, clean, and it just works. This version is tagged as `v0.1`.
+simple, clean, and just works. This version is tagged as `v0.1`.
 
-Later on I wanted to try different config file format, espacially using a lua as 
+Later on I wanted to try different config file format, espacially using lua as 
 the file parser. Hence the ConfigReader is separated from Config. With this 
-separation, it is possible to support more format in the future by deriving new 
+separation, it is possible to support more formats in the future by deriving new 
 ConfigReaders. 
 
 TinyConfig has the following functions:
